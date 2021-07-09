@@ -32,7 +32,6 @@ public class ArcadePong extends Activity {
         // Initialize gameView and set it as the view
         breakoutView = new BreakoutView(this);
         setContentView(breakoutView);
-
     }
 
     // Here is our implementation of GameView
@@ -81,7 +80,7 @@ public class ArcadePong extends Activity {
         Pong pong;
 
         // Up to 200 bricks
-        Brick[] bricks = new Brick[200];
+        Bricks[] bricks = new Bricks[200];
         int numBricks = 0;
 
         // For sound FX
@@ -112,13 +111,22 @@ public class ArcadePong extends Activity {
             plank = new Plank(screenX, screenY);
             pong = new Pong(screenX, screenY);
 
-            public void createBricksAndRestart()
-            {
-                // Put the pong back to the start
-                pong.reset(screenX, screenY);
+        }
+        public void createBricksAndRestart()
+        {
+            // Put the pong back to the start
+            pong.reset(screenX, screenY);
+            int brickWidth = screenX / 8;
+            int brickHeight = screenY / 10;
+            // Build a wall of bricks
+            numBricks = 0;
+            for(int column = 0; column < 8; column ++ ){
+                for(int row = 0; row < 3; row ++ ){
+                    bricks[numBricks] = new Bricks(row, column, brickWidth, brickHeight);
+                    numBricks ++;
+                }
             }
         }
-
 
         @Override
         public void run() {
@@ -174,7 +182,15 @@ public class ArcadePong extends Activity {
                 // Draw the pong
                 canvas.drawRect(pong.getRect(), paint);
                 // Draw the bricks
+                // Change the brush color for drawing
+                paint.setColor(Color.argb(255,  249, 129, 0));
 
+                // Draw the bricks if visible
+                for(int i = 0; i < numBricks; i++){
+                    if(bricks[i].getVisibility()) {
+                        canvas.drawRect(bricks[i].getRect(), paint);
+                    }
+                }
                 // Draw the HUD
 
                 // Draw everything to the screen
