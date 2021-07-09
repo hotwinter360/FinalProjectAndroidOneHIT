@@ -19,7 +19,11 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import java.io.IOException;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
+import java.util.ResourceBundle;
 
 public class ArcadePong extends Activity {
 
@@ -27,7 +31,7 @@ public class ArcadePong extends Activity {
     // It will also hold the logic of the game
     // and respond to screen touches as well
     BreakoutView breakoutView;
-
+    Bitmap iBackground;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,7 +111,7 @@ public class ArcadePong extends Activity {
             // SurfaceView class to set up our object.
             // How kind.
             super(context);
-
+            iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.gameimage);
             // Initialize ourHolder and paint objects
             ourHolder = getHolder();
             paint = new Paint();
@@ -303,10 +307,9 @@ public class ArcadePong extends Activity {
             if (ourHolder.getSurface().isValid()) {
                 // Lock the canvas ready to draw
                 canvas = ourHolder.lockCanvas();
-
                 // Draw the background color
                 canvas.drawColor(Color.argb(255,  26, 128, 182));
-
+                canvas.drawBitmap(iBackground,0,0,null);
                 // Choose the brush color for drawing
                 paint.setColor(Color.argb(255,  255, 255, 255));
 
