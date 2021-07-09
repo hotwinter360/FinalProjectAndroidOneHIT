@@ -390,7 +390,6 @@ public class ArcadePong extends Activity {
                     else{
                         plank.setMovementState(plank.LEFT);
                     }
-
                     break;
 
 
