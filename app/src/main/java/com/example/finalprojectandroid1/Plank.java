@@ -74,6 +74,5 @@ public class Plank {
         rect.left = x;
         rect.right = x + length;
     }
-
 }
 
