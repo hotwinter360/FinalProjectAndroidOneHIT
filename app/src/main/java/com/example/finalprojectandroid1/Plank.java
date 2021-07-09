@@ -7,26 +7,26 @@ public class Plank {
     // RectF is an object that holds four coordinates - just what we need
     private RectF rect;
 
-    // How long and high our plank will be
+    // How long and high our paddle will be
     private float length;
     private float height;
 
-    // X is the far left of the rectangle which forms our plank
+    // X is the far left of the rectangle which forms our paddle
     private float x;
 
     // Y is the top coordinate
     private float y;
 
-    // This will hold the pixels per second speedthat the plank will move
-    private float plankSpeed;
+    // This will hold the pixels per second speedthat the paddle will move
+    private float paddleSpeed;
 
-    // Which ways can the plank move
+    // Which ways can the paddle move
     public final int STOPPED = 0;
     public final int LEFT = 1;
     public final int RIGHT = 2;
 
-    // Is the plank moving and in which direction
-    private int plankMoving = STOPPED;
+    // Is the paddle moving and in which direction
+    private int paddleMoving = STOPPED;
 
     // This the the constructor method
     // When we create an object from this class we will pass
@@ -36,39 +36,39 @@ public class Plank {
         length = 130;
         height = 20;
 
-        // Start plank in roughly the screen centre
+        // Start paddle in roughly the screen centre
         x = screenX / 2;
         y = screenY - 20;
 
         // Initialize rectangle
         rect = new RectF(x, y, x + length, y + height);
 
-        // How fast is the plank in pixels per second
-        plankSpeed = 1350;
+        // How fast is the paddle in pixels per second
+        paddleSpeed = 1050;
     }
 
 
     // This is a getter method to make the rectangle that
-    // defines our plank available in BreakoutView class
+    // defines our paddle available in BreakoutView class
     public RectF getRect(){
         return rect;
     }
 
-    // This method will be used to change/set if the plank is going left, right or nowhere
+    // This method will be used to change/set if the paddle is going left, right or nowhere
     public void setMovementState(int state){
-        plankMoving = state;
+        paddleMoving = state;
     }
 
     // This update method will be called from update in BreakoutView
-    // It determines if the plank needs to move and changes the coordinates
+    // It determines if the paddle needs to move and changes the coordinates
     // contained in rect if necessary
     public void update(long fps){
-        if (plankMoving == LEFT){
-            x = x - plankSpeed / fps;
+        if(paddleMoving == LEFT){
+            x = x - paddleSpeed / fps;
         }
 
-        if (plankMoving == RIGHT){
-            x = x + plankSpeed / fps;
+        if(paddleMoving == RIGHT){
+            x = x + paddleSpeed / fps;
         }
 
         rect.left = x;
