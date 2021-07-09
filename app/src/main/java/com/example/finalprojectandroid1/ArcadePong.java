@@ -1,14 +1,22 @@
 package com.example.finalprojectandroid1;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.RectF;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import java.io.IOException;
 
 public class ArcadePong extends Activity {
 
@@ -61,6 +69,34 @@ public class ArcadePong extends Activity {
         // This is used to help calculate the fps
         private long timeThisFrame;
 
+
+        // The size of the screen in pixels
+        int screenX;
+        int screenY;
+
+        // The players plank
+        Plank plank;
+
+        // A pong
+        Pong pong;
+
+        // Up to 200 bricks
+        Brick[] bricks = new Brick[200];
+        int numBricks = 0;
+
+        // For sound FX
+        SoundPool soundPool;
+        int beep1ID = -1;
+        int beep2ID = -1;
+        int beep3ID = -1;
+        int loseLifeID = -1;
+        int explodeID = -1;
+
+        // The score
+        int score = 0;
+
+        // Lives
+        int lives = 3;
         // When the we initialize (call new()) on gameView
         // This special constructor method runs
         public BreakoutView(Context context) {
@@ -73,7 +109,16 @@ public class ArcadePong extends Activity {
             ourHolder = getHolder();
             paint = new Paint();
 
+            plank = new Plank(screenX, screenY);
+            pong = new Pong(screenX, screenY);
+
+            public void createBricksAndRestart()
+            {
+                // Put the pong back to the start
+                pong.reset(screenX, screenY);
+            }
         }
+
 
         @Override
         public void run() {
@@ -106,7 +151,8 @@ public class ArcadePong extends Activity {
         // Everything that needs to be updated goes in here
         // Movement, collision detection etc.
         public void update() {
-
+            plank.update(fps);
+            pong.update(fps);
         }
 
         // Draw the newly updated scene
@@ -123,10 +169,10 @@ public class ArcadePong extends Activity {
                 // Choose the brush color for drawing
                 paint.setColor(Color.argb(255,  255, 255, 255));
 
-                // Draw the paddle
-
-                // Draw the ball
-
+                // Draw the plank
+                canvas.drawRect(plank.getRect(), paint);
+                // Draw the pong
+                canvas.drawRect(pong.getRect(), paint);
                 // Draw the bricks
 
                 // Draw the HUD
@@ -166,11 +212,20 @@ public class ArcadePong extends Activity {
 
                 // Player has touched the screen
                 case MotionEvent.ACTION_DOWN:
+                    paused = false;
+
+                    if(motionEvent.getX() > screenX / 2){
+                        plank.setMovementState(plank.RIGHT);
+                    }
+                    else{
+                        plank.setMovementState(plank.LEFT);
+                    }
 
                     break;
 
                 // Player has removed finger from screen
                 case MotionEvent.ACTION_UP:
+                    plank.setMovementState(plank.STOPPED);
 
                     break;
             }
