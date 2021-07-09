@@ -1,6 +1,7 @@
 package com.example.finalprojectandroid1;
 
 import android.graphics.RectF;
+
 import java.util.Random;
 
 public class Pong {
@@ -9,6 +10,7 @@ public class Pong {
     float yVelocity;
     float ballWidth = 10;
     float ballHeight = 10;
+
 
     public Pong(int screenX, int screenY){
 
@@ -36,6 +38,7 @@ public class Pong {
     public void reverseYVelocity(){
         yVelocity = -yVelocity;
     }
+
 
     public void reverseXVelocity(){
         xVelocity = - xVelocity;
@@ -66,5 +69,6 @@ public class Pong {
         rect.right = x / 2 + ballWidth;
         rect.bottom = y - 20 - ballHeight;
     }
+
 
 }

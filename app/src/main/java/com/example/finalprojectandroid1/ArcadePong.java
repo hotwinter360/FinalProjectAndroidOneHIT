@@ -1,4 +1,6 @@
 package com.example.finalprojectandroid1;
+
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
@@ -18,6 +20,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import java.io.IOException;
 
+
 public class ArcadePong extends Activity {
 
     // gameView will be the view of the game
@@ -32,12 +35,13 @@ public class ArcadePong extends Activity {
         // Initialize gameView and set it as the view
         breakoutView = new BreakoutView(this);
         setContentView(breakoutView);
+
     }
 
-    // Here is our implementation of GameView
+    // Here is our implementation of BreakoutView
     // It is an inner class.
     // Note how the final closing curly brace }
-    // is inside SimpleGameEngine
+    // is inside the ArcadePong class
 
     // Notice we implement runnable so we have
     // A thread and can override the run method.
@@ -68,7 +72,6 @@ public class ArcadePong extends Activity {
         // This is used to help calculate the fps
         private long timeThisFrame;
 
-
         // The size of the screen in pixels
         int screenX;
         int screenY;
@@ -96,6 +99,7 @@ public class ArcadePong extends Activity {
 
         // Lives
         int lives = 3;
+
         // When the we initialize (call new()) on gameView
         // This special constructor method runs
         public BreakoutView(Context context) {
@@ -108,16 +112,63 @@ public class ArcadePong extends Activity {
             ourHolder = getHolder();
             paint = new Paint();
 
+            // Get a Display object to access screen details
+            Display display = getWindowManager().getDefaultDisplay();
+            // Load the resolution into a Point object
+            Point size = new Point();
+            display.getSize(size);
+
+            screenX = size.x;
+            screenY = size.y;
+
             plank = new Plank(screenX, screenY);
+
+            // Create a pong
             pong = new Pong(screenX, screenY);
 
+            // Load the sounds
+
+            // This SoundPool is deprecated but don't worry
+            soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC,0);
+
+            try{
+                // Create objects of the 2 required classes
+                AssetManager assetManager = context.getAssets();
+                AssetFileDescriptor descriptor;
+
+                // Load our fx in memory ready for use
+                descriptor = assetManager.openFd("beep1.ogg");
+                beep1ID = soundPool.load(descriptor, 0);
+
+                descriptor = assetManager.openFd("beep2.ogg");
+                beep2ID = soundPool.load(descriptor, 0);
+
+                descriptor = assetManager.openFd("beep3.ogg");
+                beep3ID = soundPool.load(descriptor, 0);
+
+                descriptor = assetManager.openFd("loseLife.ogg");
+                loseLifeID = soundPool.load(descriptor, 0);
+
+                descriptor = assetManager.openFd("explode.ogg");
+                explodeID = soundPool.load(descriptor, 0);
+
+            }catch(IOException e){
+                // Print an error message to the console
+                Log.e("error", "failed to load sound files");
+            }
+
+            createBricksAndRestart();
+
         }
-        public void createBricksAndRestart()
-        {
+
+        public void createBricksAndRestart(){
+
             // Put the pong back to the start
             pong.reset(screenX, screenY);
+
             int brickWidth = screenX / 8;
             int brickHeight = screenY / 10;
+
             // Build a wall of bricks
             numBricks = 0;
             for(int column = 0; column < 8; column ++ ){
@@ -126,6 +177,13 @@ public class ArcadePong extends Activity {
                     numBricks ++;
                 }
             }
+
+            // if game over reset scores and lives
+            if(lives == 0) {
+                score = 0;
+                lives = 3;
+            }
+
         }
 
         @Override
@@ -159,8 +217,83 @@ public class ArcadePong extends Activity {
         // Everything that needs to be updated goes in here
         // Movement, collision detection etc.
         public void update() {
+
+            // Move the plank if required
             plank.update(fps);
+
             pong.update(fps);
+
+            // Check for pong colliding with a brick
+            for(int i = 0; i < numBricks; i++){
+
+                if (bricks[i].getVisibility()){
+
+
+                    if(RectF.intersects(bricks[i].getRect(), pong.getRect())) {
+                        bricks[i].setInvisible();
+                        pong.reverseYVelocity();
+                        score = score + 10;
+
+                        soundPool.play(explodeID, 1, 1, 0, 0, 1);
+                    }
+                }
+            }
+
+            // Check for pong colliding with plank
+            if(RectF.intersects(plank.getRect(),pong.getRect())) {
+                pong.setRandomXVelocity();
+                pong.reverseYVelocity();
+                pong.clearObstacleY(plank.getRect().top - 2);
+
+                soundPool.play(beep1ID, 1, 1, 0, 0, 1);
+            }
+
+            // Bounce the pong back when it hits the bottom of screen
+            if(pong.getRect().bottom > screenY){
+                pong.reverseYVelocity();
+                pong.clearObstacleY(screenY - 2);
+
+                // Lose a life
+                lives --;
+                soundPool.play(loseLifeID, 1, 1, 0, 0, 1);
+
+                if(lives == 0){
+                    paused = true;
+                    createBricksAndRestart();
+                }
+            }
+
+            // Bounce the pong back when it hits the top of screen
+            if(pong.getRect().top < 0){
+                pong.reverseYVelocity();
+                pong.clearObstacleY(12);
+
+                soundPool.play(beep2ID, 1, 1, 0, 0, 1);
+            }
+
+            // If the pong hits left wall bounce
+            if(pong.getRect().left < 0){
+                pong.reverseXVelocity();
+                pong.clearObstacleX(2);
+
+                soundPool.play(beep3ID, 1, 1, 0, 0, 1);
+            }
+
+            // If the pong hits right wall bounce
+            if(pong.getRect().right > screenX - 10){
+                pong.reverseXVelocity();
+                pong.clearObstacleX(screenX - 22);
+
+                soundPool.play(beep3ID, 1, 1, 0, 0, 1);
+            }
+
+
+            // Pause if cleared screen
+            if(score == numBricks * 10){
+                paused = true;
+                createBricksAndRestart();
+            }
+
         }
 
         // Draw the newly updated scene
@@ -179,9 +312,11 @@ public class ArcadePong extends Activity {
 
                 // Draw the plank
                 canvas.drawRect(plank.getRect(), paint);
+
                 // Draw the pong
                 canvas.drawRect(pong.getRect(), paint);
-                // Draw the bricks
+
+
                 // Change the brush color for drawing
                 paint.setColor(Color.argb(255,  249, 129, 0));
 
@@ -191,7 +326,25 @@ public class ArcadePong extends Activity {
                         canvas.drawRect(bricks[i].getRect(), paint);
                     }
                 }
-                // Draw the HUD
+
+                // Choose the brush color for drawing
+                paint.setColor(Color.argb(255,  255, 255, 255));
+
+                // Draw the score
+                paint.setTextSize(40);
+                canvas.drawText("Score: " + score + "   Lives: " + lives, 10,50, paint);
+
+                // Has the player cleared the screen?
+                if(score == numBricks * 10){
+                    paint.setTextSize(90);
+                    canvas.drawText("YOU HAVE WON!", 10,screenY/2, paint);
+                }
+
+                // Has the player lost?
+                if(lives <= 0){
+                    paint.setTextSize(90);
+                    canvas.drawText("YOU HAVE LOST!", 10,screenY/2, paint);
+                }
 
                 // Draw everything to the screen
                 ourHolder.unlockCanvasAndPost(canvas);
@@ -228,6 +381,7 @@ public class ArcadePong extends Activity {
 
                 // Player has touched the screen
                 case MotionEvent.ACTION_DOWN:
+
                     paused = false;
 
                     if(motionEvent.getX() > screenX / 2){
@@ -239,10 +393,11 @@ public class ArcadePong extends Activity {
 
                     break;
 
+
                 // Player has removed finger from screen
                 case MotionEvent.ACTION_UP:
-                    plank.setMovementState(plank.STOPPED);
 
+                    plank.setMovementState(plank.STOPPED);
                     break;
             }
             return true;
