@@ -308,10 +308,8 @@ public class ArcadePong extends Activity {
                 // Lock the canvas ready to draw
                 canvas = ourHolder.lockCanvas();
                 // Draw the background color
-                canvas.drawColor(Color.argb(255,  26, 128, 182));
                 canvas.drawBitmap(iBackground,0,0,null);
-                // Choose the brush color for drawing
-                paint.setColor(Color.argb(255,  255, 255, 255));
+
 
                 // Draw the plank
                 canvas.drawRect(plank.getRect(), paint);
@@ -367,8 +365,7 @@ public class ArcadePong extends Activity {
 
         }
 
-        // If SimpleGameEngine Activity is started theb
-        // start our thread.
+        // If SimpleGameEngine Activity is started then start our thread.
         public void resume() {
             playing = true;
             gameThread = new Thread(this);
