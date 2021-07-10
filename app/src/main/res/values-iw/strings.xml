@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ארקייד פונג</string>
-    <string name="play">שחק</string>
+    <string name="Play">שחק</string>
     <string name="Scoreboard">טבלת ניקוד</string>
     <string name="Win">ניצחון</string>
     <string name="Lose">הפסדת</string>
     <string name="Scores">נקודות</string>
     <string name="Lives">חיים שנותרו</string>
     <string name="Error">שגיאה</string>
+
 </resources>

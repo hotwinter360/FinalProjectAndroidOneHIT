@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Arcade Pong</string>
-    <string name="play">play</string>
+    <string name="play">Play</string>
     <string name="Scoreboard">Scoreboard</string>
     <string name="Win">YOU HAVE WON</string>
     <string name="Lose">YOU HAVE LOST</string>
     <string name="Scores">Score</string>
     <string name="Lives">Life left</string>
     <string name="Error">Error</string>
+    <string name="Play">Play</string>
 </resources>

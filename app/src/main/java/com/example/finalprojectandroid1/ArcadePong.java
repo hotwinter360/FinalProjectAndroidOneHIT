@@ -301,6 +301,13 @@ public class ArcadePong extends Activity {
         // Draw the newly updated scene
         public void draw() {
 
+            String appName=getResources().getString(R.string.app_name);
+            String play=getResources().getString(R.string.Play);
+            String scores=getResources().getString(R.string.Scores);
+            String live=getResources().getString(R.string.Lives);
+            String lose=getResources().getString(R.string.Lose);
+            String win=getResources().getString(R.string.Win);
+
             // Make sure our drawing surface is valid or we crash
             if (ourHolder.getSurface().isValid()) {
                 // Lock the canvas ready to draw
@@ -331,21 +338,18 @@ public class ArcadePong extends Activity {
 
                 // Draw the score
                 paint.setTextSize(40);
-                canvas.drawText(getString(R.string.Scores) + score + "   Lives: " + lives, 10,50, paint);
-                String scores=getResources().getString(R.string.Scores);
-
-
+                canvas.drawText("  " + getString(R.string.Scores) + " : " + score +"  " + getString(R.string.Lives) + " : " + lives, 10,50, paint);
 
                 // Has the player cleared the screen?
                 if(score == numBricks * 10){
                     paint.setTextSize(90);
-                    canvas.drawText("YOU HAVE WON!", 10,screenY/2, paint);
+                    canvas.drawText(getString(R.string.Win), 10,screenY/2, paint);
                 }
 
                 // Has the player lost?
                 if(lives <= 0){
                     paint.setTextSize(90);
-                    canvas.drawText("YOU HAVE LOST!", 10,screenY/2, paint);
+                    canvas.drawText(getString(R.string.Lose), 10,screenY/2, paint);
                 }
 
                 // Draw everything to the screen
