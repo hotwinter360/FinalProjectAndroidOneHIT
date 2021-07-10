@@ -5,7 +5,7 @@
     <string name="Scoreboard">טבלת ניקוד</string>
     <string name="Win">ניצחון</string>
     <string name="Lose">הפסדת</string>
-    <string name="Score">נקודות</string>
+    <string name="Scores">נקודות</string>
     <string name="Lives">חיים שנותרו</string>
     <string name="Error">שגיאה</string>
 </resources>

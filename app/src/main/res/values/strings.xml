@@ -4,7 +4,7 @@
     <string name="Scoreboard">Scoreboard</string>
     <string name="Win">YOU HAVE WON</string>
     <string name="Lose">YOU HAVE LOST</string>
-    <string name="Score">Score</string>
+    <string name="Scores">Score</string>
     <string name="Lives">Life left</string>
     <string name="Error">Error</string>
 </resources>

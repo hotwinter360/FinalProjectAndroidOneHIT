@@ -19,12 +19,9 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import java.io.IOException;
-import android.content.res.Resources;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.widget.TextView;
-
-import java.util.ResourceBundle;
 
 public class ArcadePong extends Activity {
 
@@ -334,7 +331,10 @@ public class ArcadePong extends Activity {
 
                 // Draw the score
                 paint.setTextSize(40);
-                canvas.drawText("Score: " + score + "   Lives: " + lives, 10,50, paint);
+                canvas.drawText(getString(R.string.Scores) + score + "   Lives: " + lives, 10,50, paint);
+                String scores=getResources().getString(R.string.Scores);
+
+
 
                 // Has the player cleared the screen?
                 if(score == numBricks * 10){
