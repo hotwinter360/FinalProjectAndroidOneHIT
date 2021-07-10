@@ -22,6 +22,7 @@ import java.io.IOException;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.widget.TextView;
 
 import java.util.ResourceBundle;
 
