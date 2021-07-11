@@ -30,7 +30,7 @@ public class ArcadePong extends Activity {
     // and respond to screen touches as well
     BreakoutView breakoutView;
     Bitmap iBackground;
-    Bitmap Ball;
+ //   Bitmap Ball;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +112,7 @@ public class ArcadePong extends Activity {
             // How kind.
             super(context);
             iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.bitbitn);
-            Ball = BitmapFactory.decodeResource(getResources(),R.drawable.ball);
+           // Ball = BitmapFactory.decodeResource(getResources(),R.drawable.ball);
 
             // Initialize ourHolder and paint objects
             ourHolder = getHolder();
@@ -325,8 +325,8 @@ public class ArcadePong extends Activity {
                 canvas.drawRect(plank.getRect(), paint);
 
                 // Draw the pong
-                //canvas.drawRect(pong.getRect(), paint);
-                canvas.drawBitmap(Ball,15,15,null);
+                canvas.drawRect(pong.getRect(), paint);
+               // canvas.drawBitmap(Ball,15,15,null);
 
 
                 // Change the brush color for drawing
