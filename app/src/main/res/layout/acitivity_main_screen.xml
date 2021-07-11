@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
+    android:background="@drawable/gameimage">
 
-    android:background="@drawable/gameimage"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical">
-
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gif"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/deliveryman"/>
         <Button
             android:id="@+id/playBtn"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Play"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:src="@drawable/ball" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Widget.AppCompat.Button.Borderless"/>
 
 
-</LinearLayout>
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/startGif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@android:style/Animation"
+            android:src="@drawable/start"/>
+
+</RelativeLayout>
