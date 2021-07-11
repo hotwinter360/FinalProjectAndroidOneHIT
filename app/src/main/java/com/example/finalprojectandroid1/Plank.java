@@ -37,8 +37,8 @@ public class Plank {
     // in the screen width and height
     public Plank(int screenX, int screenY){
         // 130 pixels wide and 20 pixels high
-        length = 130;
-        height = 20;
+        length = 230;
+        height = 30;
 
         // Start plank in roughly the screen centre
 

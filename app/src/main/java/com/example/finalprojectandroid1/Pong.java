@@ -8,8 +8,8 @@ public class Pong {
     RectF rect;
     float xVelocity;
     float yVelocity;
-    float ballWidth = 10;
-    float ballHeight = 10;
+    float ballWidth = 15;
+    float ballHeight = 15;
 
 
     public Pong(int screenX, int screenY){
