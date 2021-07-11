@@ -4,16 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="visible"
-    android:background="@drawable/spacel">
+    android:background="@drawable/spacel"
+    android:visibility="visible">
 
     <Button
         android:id="@+id/startBtn"
-        android:layout_width="250sp"
-        android:layout_height="250sp"
-        android:src="@drawable/thumbnail"
-        style="@style/Widget.AppCompat.Button.Borderless"/>
-
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:insetBottom="10dp"
+        android:src="@drawable/thumbnail" />
+    <Button
+        android:id="@+id/lev1Btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:insetBottom="10dp"
+        android:src="@drawable/thumbnail" />
+    <Button
+        android:id="@+id/lev2Btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:insetBottom="10dp"
+        android:src="@drawable/thumbnail" />
+    <Button
+        android:id="@+id/lev3Btn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:insetBottom="10dp"
+        android:src="@drawable/thumbnail" />
 
 </RelativeLayout>
 
