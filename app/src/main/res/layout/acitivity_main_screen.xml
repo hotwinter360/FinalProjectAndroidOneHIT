@@ -5,21 +5,23 @@
 
     android:background="@drawable/gameimage"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gif"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/deliveryman"/>
         <Button
             android:id="@+id/playBtn"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="150dp"
+            android:text="Play"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:src="@drawable/ball" />
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gif"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/deliveryman"/>
+
 
 </LinearLayout>
