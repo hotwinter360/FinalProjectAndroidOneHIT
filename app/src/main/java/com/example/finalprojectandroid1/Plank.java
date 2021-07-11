@@ -1,6 +1,8 @@
 package com.example.finalprojectandroid1;
 
 import android.graphics.RectF;
+import android.util.Size;
+import android.util.SizeF;
 
 public class Plank {
 
@@ -16,6 +18,8 @@ public class Plank {
 
     // Y is the top coordinate
     private float y;
+
+    private float screenLength;
 
     // This will hold the pixels per second speed that the plank will move
     private float plankSpeed;
@@ -37,8 +41,9 @@ public class Plank {
         height = 20;
 
         // Start plank in roughly the screen centre
+
         x = screenX / 2;
-        y = screenY - 20;
+        y = screenY - 30;
 
         // Initialize rectangle
         rect = new RectF(x, y, x + length, y + height);
@@ -62,12 +67,13 @@ public class Plank {
     // This update method will be called from update in BreakoutView
     // It determines if the plank needs to move and changes the coordinates
     // contained in rect if necessary
-    public void update(long fps){
-        if (plankMoving == LEFT){
+    public void update(long fps, int screenX){
+
+        if(plankMoving == LEFT && x > 0){
             x = x - plankSpeed / fps;
         }
 
-        if (plankMoving == RIGHT){
+        if(plankMoving == RIGHT && x < screenX){
             x = x + plankSpeed / fps;
         }
 

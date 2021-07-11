@@ -221,7 +221,7 @@ public class ArcadePong extends Activity {
         public void update() {
 
             // Move the plank if required
-            plank.update(fps);
+            plank.update(fps,screenX);
 
             pong.update(fps);
 
