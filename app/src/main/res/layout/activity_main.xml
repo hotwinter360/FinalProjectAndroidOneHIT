@@ -4,50 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/lake"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/gameimage" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="48sp"
-        android:text="Arcade Pong"
-        android:layout_above="@+id/play"
         android:layout_below="@+id/HighScoreText"
-        android:textColor="@color/green"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:text="Arcade Pong"
+        android:textColor="@color/white"
+        android:textSize="48sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="play"
-        android:textSize="64sp"
-        android:layout_centerInParent="true"
-        android:textColor="#FF9800"
-        android:id="@+id/play"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:text="High Score"
-        android:layout_margin="16dp"
-        android:layout_alignParentRight="true"
-        android:id="@+id/HighScoreText"/>
 
     <ImageView
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_centerInParent="true"
+        android:src="@drawable/images">
+
+        <Button
+            android:id="@+id/playBtn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:src="@drawable/start" />
+    </ImageView>
+
+    <TextView
+        android:id="@+id/HighScoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_baseline_volume_up_24"
-        android:id="@+id/Ctrl"/>
+        android:text="High Score : "
+        android:textColor="@color/white"
+        android:textSize="30sp" />
 
 
 </RelativeLayout>

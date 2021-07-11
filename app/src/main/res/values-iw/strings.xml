@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ארקייד פונג</string>
     <string name="Play">שחק</string>
     <string name="Scoreboard">טבלת ניקוד</string>
     <string name="Win">ניצחון</string>

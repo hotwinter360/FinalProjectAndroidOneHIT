@@ -109,10 +109,12 @@ public class ArcadePong extends Activity {
             // SurfaceView class to set up our object.
             // How kind.
             super(context);
-            iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.gameimage);
+            iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.bitbitn);
+
             // Initialize ourHolder and paint objects
             ourHolder = getHolder();
             paint = new Paint();
+
 
             // Get a Display object to access screen details
             Display display = getWindowManager().getDefaultDisplay();
@@ -324,7 +326,7 @@ public class ArcadePong extends Activity {
 
 
                 // Change the brush color for drawing
-                paint.setColor(Color.argb(255,  249, 129, 0));
+                paint.setColor(Color.argb(252,  150, 0, 150));
 
                 // Draw the bricks if visible
                 for(int i = 0; i < numBricks; i++){

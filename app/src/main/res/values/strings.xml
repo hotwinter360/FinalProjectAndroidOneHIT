@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Arcade Pong</string>
-    <string name="play">Play</string>
+    <string name="app_name" translatable="false">Arcade Pong</string>
     <string name="Scoreboard">Scoreboard</string>
     <string name="Win">YOU HAVE WON</string>
     <string name="Lose">YOU HAVE LOST</string>

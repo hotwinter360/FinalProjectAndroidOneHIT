@@ -67,13 +67,13 @@ public class Plank {
     // This update method will be called from update in BreakoutView
     // It determines if the plank needs to move and changes the coordinates
     // contained in rect if necessary
-    public void update(long fps, int screenX){
+    public void update(long fps, int screenWidth){
 
         if(plankMoving == LEFT && x > 0){
             x = x - plankSpeed / fps;
         }
 
-        if(plankMoving == RIGHT && x < screenX){
+        if(plankMoving == RIGHT && x < screenWidth){
             x = x + plankSpeed / fps;
         }
 
