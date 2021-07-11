@@ -111,7 +111,7 @@ public class ArcadePong extends Activity {
             // SurfaceView class to set up our object.
             // How kind.
             super(context);
-            iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.bit);
+            iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.bitbitn);
            // Ball = BitmapFactory.decodeResource(getResources(),R.drawable.ball);
 
             // Initialize ourHolder and paint objects

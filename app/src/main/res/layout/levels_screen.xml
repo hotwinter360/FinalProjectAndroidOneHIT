@@ -5,5 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".MainActivity"/>
+    android:background="@drawable/spacel">
+
+    <Button
+        android:id="@+id/startBtn"
+        android:layout_width="250sp"
+        android:layout_height="250sp"
+        android:src="@drawable/thumbnail"
+        style="@style/Widget.AppCompat.Button.Borderless"/>
+
+
+</RelativeLayout>
 
