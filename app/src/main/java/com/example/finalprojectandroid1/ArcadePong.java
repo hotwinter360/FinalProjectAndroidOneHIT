@@ -219,9 +219,7 @@ public class ArcadePong extends Activity {
                 if (timeThisFrame >= 1) {
                     fps = 1000 / timeThisFrame;
                 }
-
             }
-
         }
 
         // Everything that needs to be updated goes in here
@@ -301,6 +299,7 @@ public class ArcadePong extends Activity {
             // Pause if cleared screen
             if(score == numBricks * 10){
                 paused = true;
+                createBricksAndRestart();
                 sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putInt("lastScore",score);
