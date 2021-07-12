@@ -19,7 +19,7 @@ public class Score extends Activity {
     EditText nameEt1 = findViewById(R.id.Name_input);
     Button addBtn = findViewById(R.id.Add);
     TextView tv_score;
-    int Points,best1,best2,best3;
+    int best1,best2,best3;
 
 
     @Override
@@ -33,6 +33,24 @@ public class Score extends Activity {
         best2 = sp.getInt("best2",0);
         best3 = sp.getInt("best3",0);
 
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String name = nameEt1.getText().toString();
+                if (nameEt1.equals("")) {
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(Score.this);
+                    alertDialog.setTitle("alert_msg_no_number");
+                    alertDialog.setMessage("alert_title_no_number_entered");
+                    alertDialog.setPositiveButton("OK", null);
+                    AlertDialog dialog = alertDialog.create();
+                    dialog.show();
+                } else {
+                Toast.makeText(Score.this, (String) name, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
         if (LastScore > best3){
             best3 = LastScore;
             SharedPreferences.Editor editor = sp.edit();
@@ -57,26 +75,6 @@ public class Score extends Activity {
             editor.putInt("Best1",best1);
             editor.apply();
         }
-
         tv_score.setText("Last Score: " + LastScore + "\n" + "Best1: " + best1 + "\n" + "Best2: " + best2 + "\n" + "Best3: " + best3 + "\n");
-
-        addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String name = nameEt1.getText().toString();
-                if (nameEt1.equals("")) {
-                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(Score.this);
-                    alertDialog.setTitle("alert_msg_no_number");
-                    alertDialog.setMessage("alert_title_no_number_entered");
-                    alertDialog.setPositiveButton("OK", null);
-                    AlertDialog dialog = alertDialog.create();
-                    dialog.show();
-                } else {
-                Toast.makeText(Score.this, (String) name, Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
     }
 }

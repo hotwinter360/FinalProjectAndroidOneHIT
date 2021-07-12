@@ -354,11 +354,6 @@ public class ArcadePong extends Activity {
                 paint.setTextSize(40);
                 canvas.drawText("  " + getString(R.string.Scores) + " : " + score +"  " + getString(R.string.Lives) + " : " + lives, 10,50, paint);
 
-                // Has the player cleared the screen?
-                if(score == numBricks * 10){
-                    paint.setTextSize(90);
-                    canvas.drawText(getString(R.string.Win), 50,screenY/2, paint);
-                }
 
                 // Has the player lost?
                 if(lives <= 0){
