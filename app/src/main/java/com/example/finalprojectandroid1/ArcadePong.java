@@ -3,6 +3,8 @@ package com.example.finalprojectandroid1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
@@ -30,6 +32,7 @@ public class ArcadePong extends Activity {
     // and respond to screen touches as well
     BreakoutView breakoutView;
     Bitmap iBackground;
+    SharedPreferences sp;
  //   Bitmap Ball;
 
     @Override
@@ -111,7 +114,7 @@ public class ArcadePong extends Activity {
             // SurfaceView class to set up our object.
             // How kind.
             super(context);
-            iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.bitbitn);
+            iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.bit);
            // Ball = BitmapFactory.decodeResource(getResources(),R.drawable.ball);
 
             // Initialize ourHolder and paint objects
@@ -298,7 +301,12 @@ public class ArcadePong extends Activity {
             // Pause if cleared screen
             if(score == numBricks * 10){
                 paused = true;
-                createBricksAndRestart();
+                sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putInt("lastScore",score);
+                editor.apply();
+                Intent intent = new Intent(ArcadePong.this, Score.class);
+                startActivity(intent);
             }
 
         }
@@ -349,7 +357,7 @@ public class ArcadePong extends Activity {
                 // Has the player cleared the screen?
                 if(score == numBricks * 10){
                     paint.setTextSize(90);
-                    canvas.drawText(getString(R.string.Win), 10,screenY/2, paint);
+                    canvas.drawText(getString(R.string.Win), 50,screenY/2, paint);
                 }
 
                 // Has the player lost?
