@@ -2,6 +2,7 @@ package com.example.finalprojectandroid1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -22,12 +23,15 @@ public class Score extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
+
         tv_score = (TextView) findViewById(R.id.tv_score);
         EditText nameEt1 = findViewById(R.id.Name_input);
-        SharedPreferences sp = getSharedPreferences("Score",MODE_PRIVATE);
-       //sp = getApplicationContext().getSharedPreferences("Score", Context.MODE_PRIVATE);
         int best1,best2,best3;
+
         Button addBtn = findViewById(R.id.Add);
+        Button playagainbtn = findViewById(R.id.playAgainbtn);
+        SharedPreferences sp = getSharedPreferences("Score",MODE_PRIVATE);
+
         int LastScore = sp.getInt("Score",0);
         best1 = sp.getInt("best1",0);
         best2 = sp.getInt("best2",0);
@@ -76,5 +80,23 @@ public class Score extends Activity {
             editor.apply();
         }
         tv_score.setText("Last Score: " + LastScore + "\n" + "Best1: " + best1 + "\n" + "Best2: " + best2 + "\n" + "Best3: " + best3 + "\n");
+        playagainbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (nameEt1.equals("")) {
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(Score.this);
+                    alertDialog.setTitle("alert_msg_no_number");
+                    alertDialog.setMessage("alert_title_no_number_entered");
+                    alertDialog.setPositiveButton("OK", null);
+                    AlertDialog dialog = alertDialog.create();
+                    dialog.show();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
     }
+
 }

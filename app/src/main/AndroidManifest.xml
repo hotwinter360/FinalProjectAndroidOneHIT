@@ -25,7 +25,8 @@
             android:screenOrientation="landscape">
         </activity>
         <activity android:name=".Score"
-            android:label="finish screen">
+            android:label="finish screen"
+            android:screenOrientation="portrait">
         </activity>
 
 

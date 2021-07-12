@@ -265,7 +265,14 @@ public class ArcadePong extends Activity {
 
                 if(lives == 0){
                     paused = true;
+                    sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putInt("exc_score",score);
+                    editor.apply();
                     createBricksAndRestart();
+
+                    Intent intent = new Intent(ArcadePong.this, Score.class);
+                    startActivity(intent);
                 }
             }
 
