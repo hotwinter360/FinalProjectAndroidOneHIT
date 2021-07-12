@@ -18,9 +18,7 @@
             android:id="@+id/startGif"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@android:style/Animation">
-
-        </pl.droidsonroids.gif.GifImageView>
-
+            style="@android:style/Animation"
+            android:src="@drawable/start"/>
 
 </RelativeLayout>
