@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/purple"
     android:orientation="vertical"
->
+    android:weightSum="3">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/level_btn"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="40dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="200dp"
             android:orientation="vertical"
+            android:layout_weight="1"
             android:weightSum="3">
 
             <ImageButton
@@ -22,26 +33,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/btn1" />
-
+                android:background="@drawable/btn1" />
             <ImageButton
                 android:id="@+id/Button2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/btn2" />
-
+                android:background="@drawable/btn1" />
             <ImageButton
                 android:id="@+id/Button3"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/btn1" />
-
-
-
+                android:background="@drawable/btn1" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:weightSum="3">
 
-</RelativeLayout>
+            <ImageButton
+                android:id="@+id/Button4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn2" />
+            <ImageButton
+                android:id="@+id/Button5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn2" />
+            <ImageButton
+                android:id="@+id/Button6"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn1" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
+
 
