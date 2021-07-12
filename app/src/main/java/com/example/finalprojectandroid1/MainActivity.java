@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             play.setOnClickListener((new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  Intent  intent = new Intent(MainActivity.this, ArcadePong.class);
+                  Intent  intent = new Intent(MainActivity.this, LevelsActivity.class);
                   startActivity(intent);
             }
              }));
