@@ -17,7 +17,7 @@ import androidx.appcompat.app.AlertDialog;
 
 public class Score extends Activity {
     TextView tv_score;
-
+    int best1,best2,best3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,6 @@ public class Score extends Activity {
         String Best2 = getResources().getString(R.string.Best2);
         String Best3 = getResources().getString(R.string.Best3);
         String lastscore = getResources().getString(R.string.lastscore);
-        int best1,best2,best3;
 
         Button addBtn = findViewById(R.id.Add);
         Button playagainbtn = findViewById(R.id.playAgainbtn);
@@ -56,7 +55,7 @@ public class Score extends Activity {
                     AlertDialog dialog = alertDialog.create();
                     dialog.show();
                 } else {
-                Toast.makeText(Score.this, (String) name, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Score.this, (String) alert_msg_no_name, Toast.LENGTH_SHORT).show();
                 }
                 Animation animation = AnimationUtils.loadAnimation(Score.this, R.anim.bounce);
                 MyBounce interpolator = new MyBounce(0.2,20);
@@ -101,7 +100,9 @@ public class Score extends Activity {
                     alertDialog.setPositiveButton("OK", null);
                     AlertDialog dialog = alertDialog.create();
                     dialog.show();
-                } else {
+                    Toast.makeText(Score.this, (String) alert_msg_no_name, Toast.LENGTH_SHORT).show();
+                }
+                else{
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
