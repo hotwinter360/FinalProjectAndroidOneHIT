@@ -13,11 +13,12 @@ public class MainActivity extends AppCompatActivity {
 
     private Button play;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitivity_main_screen);
-
 
         play = (Button) findViewById(R.id.playBtn);
             play.setOnClickListener((new View.OnClickListener() {

@@ -4,7 +4,7 @@ import android.graphics.RectF;
 
 import java.util.Random;
 
-public class Pong {
+public class Pong extends LevelsActivity {
     RectF rect;
     float xVelocity;
     float yVelocity;
@@ -15,7 +15,7 @@ public class Pong {
     public Pong(int screenX, int screenY){
 
         // Start the ball travelling straight up at 100 pixels per second
-        xVelocity = 200;
+        xVelocity = 100 * level_num ;
         yVelocity = -400;
 
         // Place the ball in the centre of the screen at the bottom
