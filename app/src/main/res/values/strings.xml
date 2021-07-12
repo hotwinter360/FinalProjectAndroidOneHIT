@@ -7,4 +7,14 @@
     <string name="Lives">Life left</string>
     <string name="Error">Error</string>
     <string name="Play">Play</string>
+    <string name="alert_msg_no_name_entered">Please enter your name</string>
+    <string name="name_hint">Please enter your name</string>
+    <string name="alert_title_no_name_entered">Enter name</string>
+    <string name="Best1">Rank1</string>
+    <string name="Best2">Rank2</string>
+    <string name="Best3">Rank3</string>
+    <string name="lastscore">Last Score</string>
+    <string name="play_again">Play Again</string>
+    <string name="submit_btn">Submit</string>
+
 </resources>

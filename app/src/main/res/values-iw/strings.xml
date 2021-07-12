@@ -7,5 +7,14 @@
     <string name="Scores">נקודות</string>
     <string name="Lives">חיים שנותרו</string>
     <string name="Error">שגיאה</string>
+    <string name="alert_msg_no_name_entered">הכנס בבקשה את השם שלך</string>
+    <string name="name_hint">הכנס את השם שלך</string>
+    <string name="alert_title_no_name_entered">הכנס שם</string>
+    <string name="Best1">מקום  ראשון</string>
+    <string name="Best2">מקום  שני</string>
+    <string name="Best3">מקום שלישי</string>
+    <string name="lastscore">התוצאה האחרונה</string>
+    <string name="play_again">שחק שוב</string>
+    <string name="submit_btn">שלח</string>
 
 </resources>
