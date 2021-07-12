@@ -42,7 +42,6 @@ public class ArcadePong extends Activity {
         // Initialize gameView and set it as the view
         breakoutView = new BreakoutView(this);
         setContentView(breakoutView);
-
     }
 
     // Here is our implementation of BreakoutView
@@ -103,7 +102,6 @@ public class ArcadePong extends Activity {
 
         // The score
         int score = 0;
-
         // Lives
         int lives = 3;
 
@@ -217,7 +215,7 @@ public class ArcadePong extends Activity {
                 // time animations and more.
                 timeThisFrame = System.currentTimeMillis() - startFrameTime;
                 if (timeThisFrame >= 1) {
-                    fps = 1000 / timeThisFrame;
+                    fps = 500 / timeThisFrame;
                 }
             }
         }
@@ -299,11 +297,13 @@ public class ArcadePong extends Activity {
             // Pause if cleared screen
             if(score == numBricks * 10){
                 paused = true;
-                createBricksAndRestart();
+
                 sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
-                editor.putInt("lastScore",score);
+                editor.putInt("exc_score",score);
                 editor.apply();
+                createBricksAndRestart();
+
                 Intent intent = new Intent(ArcadePong.this, Score.class);
                 startActivity(intent);
             }
