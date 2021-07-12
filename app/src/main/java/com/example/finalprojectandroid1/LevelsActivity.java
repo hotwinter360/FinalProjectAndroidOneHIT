@@ -5,15 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LevelsActivity extends Activity implements View.OnClickListener {
 
     int level_num=1;
-    private ImageButton startGame;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +34,26 @@ public class LevelsActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.Button1:
                 level_num=1;
-                Intent  intent = new Intent(LevelsActivity.this,ArcadePong .class);
-                startActivity(intent);
                 break;
             case R.id.Button2:
                 level_num=3/2;
                 break;
             case R.id.Button3:
-                level_num=2;                break;
+                level_num=2;
+                break;
             case R.id.Button4:
-                level_num=5/2;                 break;
+                level_num=5/2;
+                break;
             case R.id.Button5:
-                level_num=3;                break;
+                level_num=3;
+                break;
             case R.id.Button6:
-                level_num=7/2;                 break;
+                level_num=7/2;
+                break;
 
         }
+        Intent  intent = new Intent(LevelsActivity.this,ArcadePong .class);
+        startActivity(intent);
     }
 }
 

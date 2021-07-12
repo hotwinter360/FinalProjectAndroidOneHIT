@@ -17,8 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LevelsActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="landscape">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
         <activity android:name=".ArcadePong"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
