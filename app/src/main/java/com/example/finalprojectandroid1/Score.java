@@ -15,11 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 
 public class Score extends Activity {
-    Bitmap iBackground;
-    EditText nameEt1 = findViewById(R.id.Name_input);
-    Button addBtn = findViewById(R.id.Add);
     TextView tv_score;
-    int best1,best2,best3;
 
 
     @Override
@@ -28,6 +24,9 @@ public class Score extends Activity {
         setContentView(R.layout.activity_score);
         tv_score = (TextView) findViewById(R.id.tv_score);
         SharedPreferences sp = getApplicationContext().getSharedPreferences("Score", Context.MODE_PRIVATE);
+        int best1,best2,best3;
+        EditText nameEt1 = findViewById(R.id.Name_input);
+        Button addBtn = findViewById(R.id.Add);
         int LastScore = sp.getInt("Score",0);
         best1 = sp.getInt("best1",0);
         best2 = sp.getInt("best2",0);
