@@ -15,6 +15,7 @@ import android.graphics.RectF;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -136,7 +137,7 @@ public class ArcadePong extends LevelsActivity {
 
             // Load the sounds
 
-            // This SoundPool is deprecated but don't worry
+            // This SoundPool is deprecated
             soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC,0);
 
             try{
