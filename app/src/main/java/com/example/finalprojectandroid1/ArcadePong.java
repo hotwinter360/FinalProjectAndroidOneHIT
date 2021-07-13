@@ -34,6 +34,7 @@ public class ArcadePong extends LevelsActivity {
     BreakoutView breakoutView;
     Bitmap iBackground;
     SharedPreferences sp;
+
  //   Bitmap Ball;
 
     @Override
@@ -113,7 +114,7 @@ public class ArcadePong extends LevelsActivity {
             // SurfaceView class to set up our object.
             // How kind.
             super(context);
-            iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.bit);
+            iBackground = BitmapFactory.decodeResource(getResources(),R.drawable.gameimage);
            // Ball = BitmapFactory.decodeResource(getResources(),R.drawable.ball);
 
             // Initialize ourHolder and paint objects

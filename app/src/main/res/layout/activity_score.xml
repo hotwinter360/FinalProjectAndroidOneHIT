@@ -21,15 +21,16 @@
             android:layout_gravity="center"
             android:textStyle="bold"
             android:textColor="@color/white"/>
+
         <Button
+            android:id="@+id/playAgainbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/play_again"
-            android:layout_marginStart="10dp"
             android:layout_gravity="center"
+
             android:background="@drawable/buttons"
             android:onClick="tapToAnimate"
-            android:id="@+id/playAgainbtn" />
+            android:text="@string/play_again" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
