@@ -17,7 +17,7 @@ public class Pong extends LevelsActivity {
     public Pong(int screenX, int screenY){
 
         // Start the ball travelling straight up at 100 pixels per second
-        xVelocity = 200 * level ;
+        xVelocity = 75 * level ;
         yVelocity = -400;
 
         // Place the ball in the centre of the screen at the bottom
