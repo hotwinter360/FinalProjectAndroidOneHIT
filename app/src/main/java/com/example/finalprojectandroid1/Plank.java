@@ -3,8 +3,9 @@ package com.example.finalprojectandroid1;
 import android.graphics.RectF;
 import android.util.Size;
 import android.util.SizeF;
+import android.view.View;
 
-public class Plank {
+public class Plank extends LevelsActivity{
 
     // RectF is an object that holds four coordinates - just what we need
     private RectF rect;
@@ -37,7 +38,7 @@ public class Plank {
     // in the screen width and height
     public Plank(int screenX, int screenY){
         // 130 pixels wide and 20 pixels high
-        length = 230;
+        length = screenX /(level*3);
         height = 30;
 
         // Start plank in roughly the screen centre

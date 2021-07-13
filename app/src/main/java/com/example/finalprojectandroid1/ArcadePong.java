@@ -340,7 +340,7 @@ public class ArcadePong extends Activity {
 
                 // Draw the pong
                 canvas.drawRect(pong.getRect(), paint);
-               // canvas.drawBitmap(Ball,15,15,null);
+
 
 
                 // Change the brush color for drawing

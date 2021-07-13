@@ -10,12 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LevelsActivity extends Activity implements View.OnClickListener {
 
-    int level_num=1;
+    static int level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.levels_screen);
+
         ImageButton button1 = findViewById(R.id.Button1);
         ImageButton button2 = findViewById(R.id.Button2);
         ImageButton button3 = findViewById(R.id.Button3);
@@ -28,32 +29,37 @@ public class LevelsActivity extends Activity implements View.OnClickListener {
         button4.setOnClickListener((View.OnClickListener) this);
         button5.setOnClickListener((View.OnClickListener) this);
         button6.setOnClickListener((View.OnClickListener) this);
+
     }
+
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.Button1:
-                level_num=1;
+                level=1;
                 break;
             case R.id.Button2:
-                level_num=3/2;
+                level = 2;
                 break;
             case R.id.Button3:
-                level_num=2;
+                level = 3;
                 break;
             case R.id.Button4:
-                level_num=5/2;
+                level = 4;
                 break;
             case R.id.Button5:
-                level_num=3;
+                level = 5;
                 break;
             case R.id.Button6:
-                level_num=7/2;
+                level = 6;
                 break;
-
         }
-        Intent  intent = new Intent(LevelsActivity.this,ArcadePong .class);
+        Intent intent = new Intent(LevelsActivity.this, ArcadePong.class);
         startActivity(intent);
     }
 }
+
+
+
 

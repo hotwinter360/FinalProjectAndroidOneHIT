@@ -1,6 +1,7 @@
 package com.example.finalprojectandroid1;
 
 import android.graphics.RectF;
+import android.net.Uri;
 
 import java.util.Random;
 
@@ -12,10 +13,11 @@ public class Pong extends LevelsActivity {
     float ballHeight = 15;
 
 
+
     public Pong(int screenX, int screenY){
 
         // Start the ball travelling straight up at 100 pixels per second
-        xVelocity = 100 * level_num ;
+        xVelocity = 200 * level ;
         yVelocity = -400;
 
         // Place the ball in the centre of the screen at the bottom
