@@ -29,17 +29,13 @@ public class Score extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
         tv_score = (TextView) findViewById(R.id.tv_score);
-        EditText nameEt1 = findViewById(R.id.Name_input);
 
-        String alert_msg_no_name = getResources().getString(R.string.alert_msg_no_name_entered);
-        String alert_title_no_name = getResources().getString(R.string.alert_title_no_name_entered);
         String Best1 = getResources().getString(R.string.Best1);
         String Best2 = getResources().getString(R.string.Best2);
         String Best3 = getResources().getString(R.string.Best3);
         String lastscore = getResources().getString(R.string.lastscore);
 
         Button exit_btn = findViewById(R.id.Exit);
-        Button addBtn = findViewById(R.id.Add);
         Button playagainbtn = findViewById(R.id.playAgainbtn);
         int scoreResult = getIntent().getIntExtra("SCORE",0);
         SharedPreferences sp = getSharedPreferences("Score",MODE_PRIVATE);
@@ -49,27 +45,6 @@ public class Score extends Activity {
         best2 = sp.getInt("Best2",0);
         best3 = sp.getInt("Best3",0);
 
-        addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = tv_score.getText().toString();
-                if ((name.equals("") || name.matches("[0-9]+"))) {
-                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(Score.this);
-                    alertDialog.setTitle("alert_msg_no_name");
-                    alertDialog.setMessage("alert_title_no_name_entered");
-                    alertDialog.setPositiveButton("OK", null);
-                    AlertDialog dialog = alertDialog.create();
-                    dialog.show();
-                } else {
-                Toast.makeText(Score.this, (String) alert_msg_no_name, Toast.LENGTH_SHORT).show();
-                }
-                Animation animation = AnimationUtils.loadAnimation(Score.this, R.anim.bounce);
-                MyBounce interpolator = new MyBounce(0.2,20);
-                animation.setInterpolator(interpolator);
-                addBtn.startAnimation(animation);
-
-            }
-        });
         if (LastScore > best1){
             int temp = best1;
             best1 = LastScore;
@@ -98,21 +73,9 @@ public class Score extends Activity {
         playagainbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = tv_score.getText().toString();
-                if ((name.equals("") || name.matches("[0-9]+"))) {
-                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(Score.this);
-                    alertDialog.setTitle("alert_msg_no_number");
-                    alertDialog.setMessage("alert_title_no_number_entered");
-                    alertDialog.setPositiveButton("OK", null);
-                    AlertDialog dialog = alertDialog.create();
-                    dialog.show();
-                    Toast.makeText(Score.this, (String) alert_msg_no_name, Toast.LENGTH_SHORT).show();
-                }
-                else{
                     Intent intent = new Intent(getApplicationContext(), LevelsActivity.class);
                     startActivity(intent);
                     finish();
-                }
                 Animation animation = AnimationUtils.loadAnimation(Score.this, R.anim.bounce);
                 MyBounce interpolator = new MyBounce(0.2,20);
                 animation.setInterpolator(interpolator);
