@@ -1,5 +1,6 @@
 package com.example.finalprojectandroid1;
 
+import android.graphics.Color;
 import android.graphics.RectF;
 
 public class Bricks {
