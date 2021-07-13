@@ -16,5 +16,6 @@
     <string name="lastscore">התוצאה האחרונה</string>
     <string name="play_again">שחק שוב</string>
     <string name="submit_btn">שלח</string>
+    <string name="exit_btn">יציאה מהמשחק</string>
 
 </resources>

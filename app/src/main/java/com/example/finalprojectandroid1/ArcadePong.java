@@ -267,11 +267,12 @@ public class ArcadePong extends LevelsActivity {
                     paused = true;
                     sp = getSharedPreferences("Score", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
-                    editor.putInt("exc_score",score);
+                    editor.putInt("Score",score);
                     editor.apply();
                     createBricksAndRestart();
 
                     Intent intent = new Intent(ArcadePong.this, Score.class);
+                    intent.putExtra("SCORE",score);
                     startActivity(intent);
                 }
             }
@@ -312,6 +313,7 @@ public class ArcadePong extends LevelsActivity {
                 createBricksAndRestart();
 
                 Intent intent = new Intent(ArcadePong.this, Score.class);
+                intent.putExtra("SCORE",score);
                 startActivity(intent);
             }
 

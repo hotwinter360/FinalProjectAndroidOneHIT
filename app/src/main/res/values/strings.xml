@@ -16,5 +16,6 @@
     <string name="lastscore">Last Score</string>
     <string name="play_again">Play Again</string>
     <string name="submit_btn">Submit</string>
+    <string name="exit_btn">Exit Game</string>
 
 </resources>
