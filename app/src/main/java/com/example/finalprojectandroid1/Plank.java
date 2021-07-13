@@ -38,7 +38,7 @@ public class Plank extends LevelsActivity{
     // in the screen width and height
     public Plank(int screenX, int screenY){
         // 130 pixels wide and 20 pixels high
-        length = screenX /(level*3);
+        length = screenX /level;
         height = 30;
 
         // Start plank in roughly the screen centre

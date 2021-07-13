@@ -5,7 +5,6 @@ import android.graphics.RectF;
 public class Bricks {
 
     private RectF rect;
-
     private boolean isVisible;
 
     public Bricks(int row, int column, int width, int height){

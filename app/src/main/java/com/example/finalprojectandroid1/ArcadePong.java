@@ -25,7 +25,7 @@ import java.io.IOException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-public class ArcadePong extends Activity {
+public class ArcadePong extends LevelsActivity {
 
     // gameView will be the view of the game
     // It will also hold the logic of the game
@@ -180,7 +180,7 @@ public class ArcadePong extends Activity {
             // Build a wall of bricks
             numBricks = 0;
             for(int column = 0; column < 8; column ++ ){
-                for(int row = 0; row < 3; row ++ ){
+                for(int row = 0; row < level; row ++ ){
                     bricks[numBricks] = new Bricks(row, column, brickWidth, brickHeight);
                     numBricks ++;
                 }

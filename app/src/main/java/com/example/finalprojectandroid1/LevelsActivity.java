@@ -37,22 +37,22 @@ public class LevelsActivity extends Activity implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.Button1:
-                level=1;
+                level=3;
                 break;
             case R.id.Button2:
-                level = 2;
-                break;
-            case R.id.Button3:
-                level = 3;
-                break;
-            case R.id.Button4:
                 level = 4;
                 break;
-            case R.id.Button5:
+            case R.id.Button3:
                 level = 5;
                 break;
-            case R.id.Button6:
+            case R.id.Button4:
                 level = 6;
+                break;
+            case R.id.Button5:
+                level = 7;
+                break;
+            case R.id.Button6:
+                level = 8;
                 break;
         }
         Intent intent = new Intent(LevelsActivity.this, ArcadePong.class);
