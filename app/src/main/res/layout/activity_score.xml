@@ -5,61 +5,65 @@
     android:orientation="vertical"
     android:background="@drawable/purple">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
 
- <EditText
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:hint="@string/name_hint"
-     android:layout_gravity="center"
-     android:fontFeatureSettings="@string/name_hint"
-     android:textColor="@color/white"
-     android:textStyle="bold"
-     android:textColorHint="@color/white"
-     android:id="@+id/Name_input"
-     />
-     <Button
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="@string/submit_btn"
-         android:layout_gravity="center"
-         android:background="@drawable/buttons"
-         android:onClick="tapToAnimate"
-         android:id="@+id/Add"
-         />
-    <TextView
-        android:id="@+id/tv_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:gravity="center"
-        android:textSize="40sp"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/play_again"
-        android:layout_marginStart="10dp"
-        android:layout_gravity="center"
-        android:background="@drawable/buttons"
-        android:onClick="tapToAnimate"
-        android:id="@+id/playAgainbtn"
-        />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:layout_gravity="bottom">
-    <Button
-        android:id="@+id/Exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/buttons"
-        android:onClick="tapToAnimate"
-        android:text="@string/exit_btn" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/name_hint"
+            android:layout_gravity="center"
+            android:fontFeatureSettings="@string/name_hint"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textColorHint="@color/white"
+            android:id="@+id/Name_input" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_btn"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/buttons"
+            android:onClick="tapToAnimate"
+            android:id="@+id/Add" />
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:gravity="center"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/play_again"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/buttons"
+            android:onClick="tapToAnimate"
+            android:id="@+id/playAgainbtn" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2">
 
+        <Button
+            android:id="@+id/Exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/buttons"
+            android:onClick="tapToAnimate"
+            android:text="@string/exit_btn" />
+    </LinearLayout>
 </LinearLayout>
 
